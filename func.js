@@ -2,22 +2,24 @@ var width = $(window).width();
 var height = $(window).height();
 
 function goLeft() {
-  $("#donut-animate").animate({
+  $("#donut-animate").animate(
+    {
       right: width + 280
     },
     7000,
-    function () {
+    function() {
       $("#donut-animate").remove();
     }
   );
 }
 
 function goDown() {
-  $("#donut-animate").animate({
+  $("#donut-animate").animate(
+    {
       top: height
     },
     600,
-    function () {
+    function() {
       $("#donut-animate").remove();
     }
   );
@@ -25,7 +27,7 @@ function goDown() {
 
 setTimeout(goLeft, 500);
 
-$("#donut-animate").on("click", function () {
+$("#donut-animate").on("click", function() {
   $("#donut-animate").stop();
   goDown();
 });

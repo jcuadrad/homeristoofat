@@ -7,6 +7,18 @@ body {
   overflow: hidden;
 }
 
+.splash-screen {
+  background-color: #95d4f5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 .face-container {
   display: flex;
   flex-direction: column;
@@ -241,6 +253,8 @@ body {
 }
 
 #donut-animate {
+  background-image: url("https://orig00.deviantart.net/af88/f/2015/046/9/9/donut_cartoon_by_thegoldenbox-d8i3l4q.png");
+  background-size: 100%;
   position: relative;
   margin-right: -280px;
   width: 280px;
