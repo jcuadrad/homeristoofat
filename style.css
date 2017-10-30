@@ -1,0 +1,253 @@
+body {
+  background-image: url(http://vignette4.wikia.nocookie.net/simpsons/images/a/a2/Wiki-background_update_2.jpg/revision/latest?cb=20111014041518);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.face-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: stretch;
+}
+
+.forehead {
+  position: absolute;
+  top: -77px;
+  margin-left: -126px;
+  width: 453px;
+  height: 533px;
+  border-radius: 60%/50%;
+  transform: rotate(-18deg);
+  background-color: #fdd33b;
+  border: 10px solid black;
+  border-bottom: none;
+  border-left: none;
+  z-index: 1;
+}
+
+.face-top {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: stretch;
+}
+
+.eye-container {
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  border: 10px solid black;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+
+#left {
+  z-index: 3;
+}
+
+#right {
+  margin-left: -25px;
+  z-index: 2;
+}
+
+.pupil {
+  height: 40px;
+  width: 40px;
+  margin-bottom: 20px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.face-bottom {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}
+
+.nose {
+  height: 64px;
+  width: 200px;
+  border-right: 10px solid black;
+  border-top: 10px solid black;
+  border-bottom: 10px solid black;
+  border-radius: 0px 100px 100px 0px;
+  margin-left: 152px;
+  margin-top: -70px;
+  margin-bottom: -12px;
+  background-color: #fdd33b;
+  z-index: 2;
+}
+
+.mouth-container {
+  height: 339px;
+  width: 322px;
+  background-color: #d0af80;
+  border-radius: 50% 40% 50% 50%;
+  border-bottom: 10px solid black;
+  border-right: 10px solid black;
+  border-top: 10px solid black;
+  z-index: 2;
+}
+
+.detail1 {
+  position: absolute;
+  width: 320px;
+  height: 125px;
+  background-color: #cfae83;
+  border-radius: 59%;
+  border-bottom: 10px solid black;
+  border-right: 10px solid black;
+  border-top: 10px solid black;
+  border-left: 10px solid black;
+  top: 489px;
+  left: 95px;
+  transform: rotate(-6deg);
+  z-index: 5;
+}
+
+.detail2 {
+  position: absolute;
+  width: 132px;
+  height: 205px;
+  background-color: #cfae83;
+  border-radius: 40%;
+  /* border-bottom: 10px solid black; */
+  border-right: 10px solid black;
+  border-top: 10px solid black;
+  top: 385px;
+  left: 253px;
+  transform: rotate(-21deg);
+  z-index: 1;
+}
+
+.detail3 {
+  position: absolute;
+  width: 131px;
+  height: 165px;
+  background-color: #cfae83;
+  border-radius: 60%;
+  border-bottom: 10px solid black;
+  border-right: 10px solid black;
+  border-top: 10px solid black;
+  top: 505px;
+  left: 235px;
+  transform: rotate(31deg);
+  z-index: 4;
+}
+
+.end-mouth {
+  position: absolute;
+  width: 0px;
+  height: 66px;
+  background-color: black;
+  border-radius: 53%;
+  border-left: 10px solid black;
+  /* border-right: 10px solid black; */
+  /* border-top: 10px solid black; */
+  top: 521px;
+  left: 101px;
+  transform: rotate(54deg);
+  z-index: 6;
+}
+
+.conceal-mouth1 {
+  position: absolute;
+  background-color: #cfae83;
+  width: 186px;
+  height: 207px;
+  border-radius: 41%;
+  top: 406px;
+  left: 168px;
+  z-index: 5;
+}
+
+.conceal-mouth2 {
+  position: absolute;
+  background-color: #cfae83;
+  width: 301px;
+  height: 111px;
+  border-radius: 41%;
+  top: 462px;
+  left: 93px;
+  z-index: 5;
+}
+
+.conceal-mouth3 {
+  position: absolute;
+  background-color: #cfae83;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  background-color: #cfae83;
+  width: 123px;
+  height: 63px;
+  border-radius: 41%;
+  top: 635px;
+  left: 190px;
+  z-index: 5;
+}
+
+.neck {
+  position: absolute;
+  margin-left: -17px;
+  background-color: #fdd33b;
+  top: 433px;
+  width: 300px;
+  height: 503px;
+  border-right: 10px solid black;
+  z-index: 1;
+}
+
+.collar-left {
+  position: absolute;
+  width: 293px;
+  height: 160px;
+  background-color: white;
+  top: 770px;
+  left: -129px;
+  transform: rotate(15deg);
+  border-radius: 50%/10%;
+  border: 10px solid black;
+  z-index: 2;
+}
+
+.collar-right {
+  position: absolute;
+  width: 53px;
+  transform: rotate(-20deg);
+  height: 150px;
+  background-color: white;
+  top: 802px;
+  left: 274px;
+  border: 10px solid black;
+  border-radius: 50%/10%;
+  border-bottom: none;
+}
+
+#donut-animate {
+  position: relative;
+  margin-right: -280px;
+  width: 280px;
+  height: 280px;
+  z-index: 0;
+}
+
+.donut {
+  width: 100%;
+}
