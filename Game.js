@@ -1,11 +1,17 @@
 "use strict";
 
+var DONUT_CREATION_TIME = 1000;
+var DONUT_SPEED = 2000;
+var VEGETABLE_CREATION_TIME = 1500;
+var VEGETABLE_SPEED = 2500;
+
 function Game(gameContainer) {
   var self = this;
 
   self.containerElement = gameContainer;
   self.state = "Splash";
   self.healthyPoints = 0;
+  self.donutsCreated = 0;
 
   //DESTROY STATE ELEMENTS//
 
@@ -27,8 +33,8 @@ function Game(gameContainer) {
   self.createSplash = function() {
     var html = `<div class="splash-screen">
     <div class="name"><h1>Homer is too fat</h1></div>
-  <button id="start-game"><h3>Let's Help Him</h3></button>
-  </div>`;
+    <button id="start-game"><h3>Let's Help Him</h3></button>
+    </div>`;
 
     $(self.containerElement).html(html);
 
@@ -69,7 +75,7 @@ function Game(gameContainer) {
         <div class="collar-left"></div>
         <div class="collar-right"></div>
     </div>
-</div>`;
+    </div>`;
 
     $("body").css("background-color", "none");
     $("body").css(
@@ -84,6 +90,7 @@ function Game(gameContainer) {
     var html = `  <div class="game-over">
     <img src="https://www.socwall.com/images/wallpapers/3396-1600x1200.jpg" alt="" class="frame">
     <h1>GAME OVER!</H1>
+    <h4>You only got <span>0</span> healthy points!</h4>
     </div>`;
 
     $("body").css("background-image", "none");
@@ -94,8 +101,9 @@ function Game(gameContainer) {
   //CREATE FLYING OBJECTS//
 
   self.createDonut = function() {
+    self.donutsCreated++;
     var d = $(document.createElement("div"));
-    d.attr("id", "donut-animate");
+    d.addClass("donut-animate");
 
     var maxheight = $("body").height() - 200;
     var topSpace = Math.round(maxheight * Math.random());
@@ -104,19 +112,18 @@ function Game(gameContainer) {
     d.css("right", "0px");
 
     d.bind("click", function() {
-      $("#donut-animate").remove();
+      $(this).stop();
+      $(this).remove();
     });
 
     $("body").append(d);
 
-    d.animate({ right: $("body").width() }, 4000, function() {
+    d.animate({ right: $("body").width() }, DONUT_SPEED, function() {
       var b = $(this);
       var w = $("body").width();
-
-      //Only trigger the animationComplete if the balloon is at the
-      // top of the play area.
+      console.log(b);
       if (parseInt(b.css("right")) >= w) {
-        //self.gameOver();
+        self.gameOver();
       }
     });
   };
@@ -137,7 +144,7 @@ function Game(gameContainer) {
 
     $("body").append(d);
 
-    d.animate({ right: $("body").width() }, 4000, function() {
+    d.animate({ right: $("body").width() }, VEGETABLE_SPEED, function() {
       var b = $(this);
       var w = $("body").width();
 
@@ -156,15 +163,18 @@ function Game(gameContainer) {
     self.createGameOver();
     clearInterval(self.donutIntervalID);
     clearInterval(self.broccoliIntervalID);
-    setTimeout(self.reset, 6000);
+    self.resetTimeoutID = setTimeout(self.reset, 6000);
   };
 
   self.start = function() {
     self.healthyPoints = 0;
     self.destroySplash();
     self.createGame();
-    self.donutIntervalID = setInterval(self.createDonut, 3000);
-    self.broccoliIntervalID = setInterval(self.createBroccoli, 5000);
+    self.donutIntervalID = setInterval(self.createDonut, DONUT_CREATION_TIME);
+    self.broccoliIntervalID = setInterval(
+      self.createBroccoli,
+      VEGETABLE_CREATION_TIME
+    );
   };
 
   self.reset = function() {
@@ -172,5 +182,6 @@ function Game(gameContainer) {
     self.healthyPoints = 0;
     self.destroyGameOver();
     self.createSplash();
+    clearTimeout(self.resetTimeoutID);
   };
 }

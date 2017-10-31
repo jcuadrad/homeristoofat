@@ -287,7 +287,7 @@ h3 {
   border-bottom: none;
 }
 
-#donut-animate {
+.donut-animate {
   background-image: url("https://orig00.deviantart.net/af88/f/2015/046/9/9/donut_cartoon_by_thegoldenbox-d8i3l4q.png");
   background-size: 100%;
   position: absolute;
