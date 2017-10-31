@@ -316,3 +316,16 @@ h3 {
   top: 1em;
   right: 2em;
 }
+
+.game-over {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.frame {
+  width: 50%;
+}

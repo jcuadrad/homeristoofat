@@ -7,10 +7,22 @@ function Game(gameContainer) {
   self.state = "Splash";
   self.healthyPoints = 0;
 
+  //DESTROY STATE ELEMENTS//
+
   self.destroySplash = function() {
     $(".name").remove();
     $("#start-game").remove();
   };
+
+  self.destroyGame = function() {
+    $("body").empty();
+  };
+
+  self.destroyGameOver = function() {
+    $(".game-over").remove();
+  };
+
+  //CREATE STATE ELEMENTS//
 
   self.createSplash = function() {
     var html = `<div class="splash-screen">
@@ -23,6 +35,9 @@ function Game(gameContainer) {
     $("#start-game").bind("click", function() {
       self.start();
     });
+
+    $("body").css("background-image", "none");
+    $("body").css("background-color", "#FCD24C");
   };
 
   self.createGame = function() {
@@ -56,8 +71,27 @@ function Game(gameContainer) {
     </div>
 </div>`;
 
+    $("body").css("background-color", "none");
+    $("body").css(
+      "background-image",
+      "url(http://vignette4.wikia.nocookie.net/simpsons/images/a/a2/Wiki-background_update_2.jpg/revision/latest?cb=20111014041518)"
+    );
     $(self.containerElement).html(html);
   };
+
+  self.createGameOver = function() {
+    self.state = "Game-Over";
+    var html = `  <div class="game-over">
+    <img src="https://www.socwall.com/images/wallpapers/3396-1600x1200.jpg" alt="" class="frame">
+    <h1>GAME OVER!</H1>
+    </div>`;
+
+    $("body").css("background-image", "none");
+    $("body").css("background-color", "#FD7AB0");
+    $(self.containerElement).html(html);
+  };
+
+  //CREATE FLYING OBJECTS//
 
   self.createDonut = function() {
     var d = $(document.createElement("div"));
@@ -86,6 +120,7 @@ function Game(gameContainer) {
       }
     });
   };
+
   self.createBroccoli = function() {
     var d = $(document.createElement("div"));
     d.attr("id", "broccoli-animate");
@@ -97,7 +132,7 @@ function Game(gameContainer) {
     d.css("right", "0px");
 
     d.bind("click", function() {
-      $("#broccoli-animate").remove();
+      self.gameOver();
     });
 
     $("body").append(d);
@@ -114,11 +149,28 @@ function Game(gameContainer) {
     });
   };
 
+  //GAME TRANSITIONS//
+
+  self.gameOver = function() {
+    self.destroyGame();
+    self.createGameOver();
+    clearInterval(self.donutIntervalID);
+    clearInterval(self.broccoliIntervalID);
+    setTimeout(self.reset, 6000);
+  };
+
   self.start = function() {
     self.healthyPoints = 0;
     self.destroySplash();
     self.createGame();
-    setInterval(self.createDonut, 3000);
-    setInterval(self.createBroccoli, 5000);
+    self.donutIntervalID = setInterval(self.createDonut, 3000);
+    self.broccoliIntervalID = setInterval(self.createBroccoli, 5000);
+  };
+
+  self.reset = function() {
+    self.state = "Splash";
+    self.healthyPoints = 0;
+    self.destroyGameOver();
+    self.createSplash();
   };
 }
