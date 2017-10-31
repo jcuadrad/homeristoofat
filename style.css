@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Simpsons";
+  src: url("/Users/juancuadra/prework/code/webfontkit-20171030-124548/simpsonfont_demo-webfont.woff")
+    format("woff");
+}
+
 body {
   background-image: url(http://vignette4.wikia.nocookie.net/simpsons/images/a/a2/Wiki-background_update_2.jpg/revision/latest?cb=20111014041518);
   display: flex;
@@ -7,8 +13,28 @@ body {
   overflow: hidden;
 }
 
+h1 {
+  font-family: "Simpsons";
+  font-size: 100px;
+  color: white;
+  /*text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;*/
+}
+
+h2 {
+  font-family: "Simpsons";
+  font-size: 60px;
+  color: #fdd33b;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h3 {
+  font-family: "Architects Daughter", cursive;
+  font-size: 35px;
+  color: white;
+}
+
 .splash-screen {
-  background-color: #95d4f5;
+  background-color: #fdd33b;
   width: 100%;
   height: 100%;
   display: flex;
@@ -17,6 +43,15 @@ body {
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+
+.splash-screen button {
+  font: "Simpsons";
+  padding: 10px 30px;
+  border: 10px solid;
+  border-radius: 8px;
+  border-color: white;
+  background-color: transparent;
 }
 
 .face-container {
@@ -255,7 +290,17 @@ body {
 #donut-animate {
   background-image: url("https://orig00.deviantart.net/af88/f/2015/046/9/9/donut_cartoon_by_thegoldenbox-d8i3l4q.png");
   background-size: 100%;
-  position: relative;
+  position: absolute;
+  margin-right: -280px;
+  width: 280px;
+  height: 280px;
+  z-index: 0;
+}
+
+#broccoli-animate {
+  background-image: url("https://image.flaticon.com/icons/svg/372/372624.svg");
+  background-size: 100%;
+  position: absolute;
   margin-right: -280px;
   width: 280px;
   height: 280px;
@@ -264,4 +309,10 @@ body {
 
 .donut {
   width: 100%;
+}
+
+.healthy-points {
+  position: fixed;
+  top: 1em;
+  right: 2em;
 }

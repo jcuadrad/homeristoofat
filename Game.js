@@ -15,7 +15,7 @@ function Game(gameContainer) {
   self.createSplash = function() {
     var html = `<div class="splash-screen">
     <div class="name"><h1>Homer is too fat</h1></div>
-  <button id="start-game">Let's Help Him</button>
+  <button id="start-game"><h3>Let's Help Him</h3></button>
   </div>`;
 
     $(self.containerElement).html(html);
@@ -26,7 +26,9 @@ function Game(gameContainer) {
   };
 
   self.createGame = function() {
-    var html = `<div class="face-container">
+    self.state = "Game";
+    var html = `<div class="healthy-points"><h2>Healthy Points <span>0</span></h2></div>
+    <div class="face-container">
     <div class="forehead"></div>
     <div class="face-top">
         <div class="eye-container" id="left">
@@ -58,46 +60,65 @@ function Game(gameContainer) {
   };
 
   self.createDonut = function() {
-    var gamefield = self.containerElement;
-
     var d = $(document.createElement("div"));
     d.attr("id", "donut-animate");
 
-    var maxheight = $("body").height() - 100;
-    var top = Math.round(maxheight * Math.random());
+    var maxheight = $("body").height() - 200;
+    var topSpace = Math.round(maxheight * Math.random());
 
-    d.css("top", top + "px");
+    d.css("top", topSpace + "px");
     d.css("right", "0px");
 
-    d.click(function goDown() {
-      $("#donut-animate").animate(
-        {
-          top: height
-        },
-        600,
-        function() {
-          $("#donut-animate").remove();
-        }
-      );
+    d.bind("click", function() {
+      $("#donut-animate").remove();
     });
 
     $("body").append(d);
 
-    d.animate({ right: $("body").width() }, 3000, function() {
+    d.animate({ right: $("body").width() }, 4000, function() {
       var b = $(this);
       var w = $("body").width();
 
       //Only trigger the animationComplete if the balloon is at the
       // top of the play area.
       if (parseInt(b.css("right")) >= w) {
-        console.log("Done");
+        //self.gameOver();
       }
     });
   };
+  self.createBroccoli = function() {
+    var d = $(document.createElement("div"));
+    d.attr("id", "broccoli-animate");
+
+    var maxheight = $("body").height() - 200;
+    var topSpace = Math.round(maxheight * Math.random());
+
+    d.css("top", topSpace + "px");
+    d.css("right", "0px");
+
+    d.bind("click", function() {
+      $("#broccoli-animate").remove();
+    });
+
+    $("body").append(d);
+
+    d.animate({ right: $("body").width() }, 4000, function() {
+      var b = $(this);
+      var w = $("body").width();
+
+      //Only trigger the animationComplete
+      if (parseInt(b.css("right")) >= w) {
+        self.healthyPoints++;
+        $(".healthy-points span").html(self.healthyPoints);
+      }
+    });
+  };
+
   self.start = function() {
     self.healthyPoints = 0;
     self.destroySplash();
     self.createGame();
-    setInterval(self.createDonut, 5000);
+    setInterval(self.createDonut, 3000);
+    setInterval(self.createBroccoli, 5000);
   };
 }

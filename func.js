@@ -16,7 +16,7 @@ function goLeft() {
 function goDown() {
   $("#donut-animate").animate(
     {
-      top: height
+      top: 200
     },
     600,
     function() {
