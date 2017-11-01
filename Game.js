@@ -156,11 +156,12 @@ function Game(gameContainer) {
 
     $("body").append(d);
 
-    d.animate({ left: 0 }, VEGETABLE_SPEED, function() {
+    d.animate({ left: "-17.5vw" }, VEGETABLE_SPEED, function() {
       var b = $(this);
+      b.remove();
 
       //Only trigger the animationComplete
-      if (parseInt(b.css("left")) == 0 && self.state === "Game") {
+      if (b.css("left") == "-17.5vw" && self.state === "Game") {
         self.healthyPoints++;
         $(".healthy-points span").html(self.healthyPoints);
       }
@@ -170,11 +171,11 @@ function Game(gameContainer) {
   //GAME TRANSITIONS//
 
   self.gameOver = function() {
+    clearInterval(self.donutIntervalID);
+    clearInterval(self.broccoliIntervalID);
     self.destroyGame();
     self.createGameOver();
     console.log(self.healthyPoints);
-    clearInterval(self.donutIntervalID);
-    clearInterval(self.broccoliIntervalID);
     self.resetTimeoutID = setTimeout(self.reset, 4000);
   };
 
@@ -190,10 +191,10 @@ function Game(gameContainer) {
   };
 
   self.reset = function() {
+    clearTimeout(self.resetTimeoutID);
     self.state = "Splash";
     self.healthyPoints = 0;
     self.destroyGameOver();
     self.createSplash();
-    clearTimeout(self.resetTimeoutID);
   };
 }
