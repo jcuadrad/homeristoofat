@@ -122,7 +122,7 @@ function Game(gameContainer) {
     var topSpace = Math.round(maxheight * Math.random());
 
     d.css("top", topSpace + "px");
-    d.css("right", "0px");
+    d.css("left", $("body").width() + "px");
 
     d.bind("click", function() {
       $(this).stop();
@@ -131,11 +131,10 @@ function Game(gameContainer) {
 
     $("body").append(d);
 
-    d.animate({ right: $("body").width() }, DONUT_SPEED, function() {
+    d.animate({ left: 0 }, DONUT_SPEED, function() {
       var b = $(this);
-      var w = $("body").width();
-      console.log(b);
-      if (parseInt(b.css("right")) >= w) {
+      console.log(parseInt(b.css("left")));
+      if (parseInt(b.css("left")) == 0) {
         self.gameOver();
       }
     });
@@ -149,7 +148,7 @@ function Game(gameContainer) {
     var topSpace = Math.round(maxheight * Math.random());
 
     d.css("top", topSpace + "px");
-    d.css("left", "0px");
+    d.css("left", $("body").width() + "px");
 
     d.bind("click", function() {
       self.gameOver();
@@ -157,12 +156,11 @@ function Game(gameContainer) {
 
     $("body").append(d);
 
-    d.animate({ right: $("body").width() }, VEGETABLE_SPEED, function() {
+    d.animate({ left: 0 }, VEGETABLE_SPEED, function() {
       var b = $(this);
-      var w = $("body").width();
 
       //Only trigger the animationComplete
-      if (parseInt(b.css("right")) >= w && self.state === "Game") {
+      if (parseInt(b.css("left")) == 0 && self.state === "Game") {
         self.healthyPoints++;
         $(".healthy-points span").html(self.healthyPoints);
       }
@@ -184,11 +182,11 @@ function Game(gameContainer) {
     self.healthyPoints = 0;
     self.destroySplash();
     self.createGame();
-    // self.donutIntervalID = setInterval(self.createDonut, DONUT_CREATION_TIME);
-    // self.broccoliIntervalID = setInterval(
-    //   self.createBroccoli,
-    //   VEGETABLE_CREATION_TIME
-    // );
+    self.donutIntervalID = setInterval(self.createDonut, DONUT_CREATION_TIME);
+    self.broccoliIntervalID = setInterval(
+      self.createBroccoli,
+      VEGETABLE_CREATION_TIME
+    );
   };
 
   self.reset = function() {

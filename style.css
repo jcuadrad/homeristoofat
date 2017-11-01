@@ -388,6 +388,9 @@ h4 {
   background-image: url("https://orig00.deviantart.net/af88/f/2015/046/9/9/donut_cartoon_by_thegoldenbox-d8i3l4q.png");
   background-size: 100%;
   position: absolute;
+  margin-right: -17.5vw;
+  width: 17.5vw;
+  height: 17.5vw;
   z-index: 0;
 }
 
@@ -395,6 +398,9 @@ h4 {
   background-image: url("https://image.flaticon.com/icons/svg/372/372624.svg");
   background-size: 100%;
   position: absolute;
+  margin-right: -17.5vw;
+  width: 17.5vw;
+  height: 17.5vw;
   z-index: 0;
 }
 
