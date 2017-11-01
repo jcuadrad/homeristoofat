@@ -6,11 +6,11 @@
 
 body {
   background-image: url(http://vignette4.wikia.nocookie.net/simpsons/images/a/a2/Wiki-background_update_2.jpg/revision/latest?cb=20111014041518);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  background-size: cover;
   overflow: hidden;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 h1 {
@@ -33,6 +33,13 @@ h3 {
   color: white;
 }
 
+h4 {
+  font-family: "Simpsons";
+  font-size: 35px;
+  color: white;
+  margin-top: -30px;
+}
+
 .splash-screen {
   background-color: #fdd33b;
   width: 100%;
@@ -48,252 +55,339 @@ h3 {
 .splash-screen button {
   font: "Simpsons";
   padding: 10px 30px;
-  border: 10px solid;
+  border: 0.5vw solid;
   border-radius: 8px;
   border-color: white;
   background-color: transparent;
 }
 
+/* homer */
+
 .face-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: stretch;
+  position: relative;
+  width: 30vw;
+  height: 30vw;
+}
+
+.hair1 {
+  position: absolute;
+  z-index: 2;
+  top: -21vw;
+  transform: rotate(-18deg);
+  left: -2.2vw;
+  height: 9vw;
+  width: 11vw;
+  border-top: 0.4vw solid black;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background-color: transparent;
+}
+
+.hair2 {
+  position: absolute;
+  z-index: 2;
+  top: -20.7vw;
+  left: -5.2vw;
+  height: 9vw;
+  transform: rotate(-18deg);
+  width: 11vw;
+  border-top: 0.4vw solid black;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background-color: transparent;
 }
 
 .forehead {
   position: absolute;
-  top: -77px;
-  margin-left: -126px;
-  width: 453px;
-  height: 533px;
-  border-radius: 60%/50%;
+  z-index: 1;
+  top: -20vw;
+  left: -9.2vw;
+  height: 34vw;
+  width: 28vw;
   transform: rotate(-18deg);
+  border-radius: 60%/50%;
   background-color: #fdd33b;
-  border: 10px solid black;
+  border: 0.5vw solid black;
   border-bottom: none;
   border-left: none;
-  z-index: 1;
 }
 
-.face-top {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: stretch;
-}
-
-.eye-container {
-  height: 200px;
-  width: 200px;
-  background-color: white;
-  border: 10px solid black;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: stretch;
-}
-
-#left {
-  z-index: 3;
-}
-
-#right {
-  margin-left: -25px;
+.forehead-conceal {
+  width: 3.2vw;
+  /* border: 0.03vw solid; */
+  height: 2.9vw;
+  top: -8vw;
+  border-radius: 22%;
+  left: 14.95vw;
+  position: absolute;
+  transform: rotate(-18deg);
+  background-color: #fdd33b;
   z-index: 2;
 }
 
+.forehead-detail {
+  width: 3.2vw;
+  height: 3.9vw;
+  top: -7vw;
+  border-right: 0.5vw solid black;
+  border-top: 0.5vw solid black;
+  border-bottom: 0.5vw solid black;
+  border-radius: 0px 100px 100px 0px;
+  left: 16.5vw;
+  transform: rotate(-18deg);
+  /* margin-top: -70px; */
+  /* margin-bottom: -12px; */
+  background-color: #fdd33b;
+  z-index: 1;
+  position: absolute;
+}
+
+.face-top {
+  position: absolute;
+  /* z-index: 1; */
+  top: -4vw;
+  width: 30vw;
+  height: 10vw;
+}
+
+.eye-container {
+  position: absolute;
+  width: 12vw;
+  height: 12vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 0.5vw solid black;
+  border-radius: 50%;
+}
+
+#left {
+  left: 0;
+  z-index: 10;
+}
+
+#right {
+  left: 11vw;
+  z-index: 1;
+}
+
 .pupil {
-  height: 40px;
-  width: 40px;
-  margin-bottom: 20px;
+  width: 2vw;
+  height: 2vw;
   background-color: black;
   border-radius: 50%;
 }
 
 .face-bottom {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: stretch;
+  position: absolute;
+  /* background-color: blue; */
+  z-index: 6;
+  top: 5vw;
+  width: 30vw;
+  height: 30vw;
 }
 
 .nose {
-  height: 64px;
-  width: 200px;
-  border-right: 10px solid black;
-  border-top: 10px solid black;
-  border-bottom: 10px solid black;
+  width: 11.2vw;
+  height: 3.9vw;
+  border-right: 0.5vw solid black;
+  border-top: 0.5vw solid black;
+  border-bottom: 0.5vw solid black;
   border-radius: 0px 100px 100px 0px;
-  margin-left: 152px;
-  margin-top: -70px;
-  margin-bottom: -12px;
+  left: 10vw;
+  /* margin-top: -70px; */
+  /* margin-bottom: -12px; */
   background-color: #fdd33b;
   z-index: 2;
+  position: absolute;
 }
 
 .mouth-container {
-  height: 339px;
-  width: 322px;
+  height: 21vw;
+  width: 19vw;
+  top: 4.4vw;
   background-color: #d0af80;
   border-radius: 50% 40% 50% 50%;
-  border-bottom: 10px solid black;
-  border-right: 10px solid black;
-  border-top: 10px solid black;
+  border-bottom: 0.5vw solid black;
+  border-right: 0.5vw solid black;
+  border-top: 0.5vw solid black;
   z-index: 2;
+  position: absolute;
 }
 
 .detail1 {
   position: absolute;
-  width: 320px;
-  height: 125px;
+  width: 19vw;
+  height: 7vw;
+  left: 5vw;
+  top: 9.9vw;
   background-color: #cfae83;
   border-radius: 59%;
-  border-bottom: 10px solid black;
-  border-right: 10px solid black;
-  border-top: 10px solid black;
-  border-left: 10px solid black;
-  top: 489px;
-  left: 95px;
+  border-bottom: 0.5vw solid black;
+  border-right: 0.5vw solid black;
+  border-top: 0.5vw solid black;
+  border-left: 0.5vw solid black;
   transform: rotate(-6deg);
-  z-index: 5;
+  z-index: 10;
 }
 
 .detail2 {
+  /* display: none; */
   position: absolute;
-  width: 132px;
-  height: 205px;
+  width: 10vw;
+  height: 12vw;
+  left: 12vw;
+  top: 3.9vw;
   background-color: #cfae83;
   border-radius: 40%;
-  /* border-bottom: 10px solid black; */
-  border-right: 10px solid black;
-  border-top: 10px solid black;
-  top: 385px;
-  left: 253px;
+  /* border-bottom: 0.5vw solid black; */
+  border-right: 0.5vw solid black;
+  border-top: 0.5vw solid black;
   transform: rotate(-21deg);
   z-index: 1;
 }
 
 .detail3 {
+  width: 5vw;
+  height: 7vw;
+  top: 14vw;
+  left: 15vw;
   position: absolute;
-  width: 131px;
-  height: 165px;
   background-color: #cfae83;
   border-radius: 60%;
-  border-bottom: 10px solid black;
-  border-right: 10px solid black;
-  border-top: 10px solid black;
-  top: 505px;
-  left: 235px;
+  border-bottom: 0.5vw solid black;
+  border-right: 0.5vw solid black;
+  border-top: 0.5vw solid black;
   transform: rotate(31deg);
-  z-index: 4;
+  z-index: 7;
 }
 
 .end-mouth {
-  position: absolute;
-  width: 0px;
-  height: 66px;
+  display: none;
   background-color: black;
   border-radius: 53%;
-  border-left: 10px solid black;
-  /* border-right: 10px solid black; */
-  /* border-top: 10px solid black; */
-  top: 521px;
-  left: 101px;
-  transform: rotate(54deg);
+  border-left: 0.5vw solid black;
+  /* border-right: 0.5vw solid black; */
+  /* border-top: 0.5vw solid black; */
+  /* transform: rotate(54deg); */
   z-index: 6;
 }
 
 .conceal-mouth1 {
+  left: 9vw;
+  top: 4.9vw;
+  width: 11vw;
+  height: 8vw;
   position: absolute;
   background-color: #cfae83;
-  width: 186px;
-  height: 207px;
   border-radius: 41%;
-  top: 406px;
-  left: 168px;
-  z-index: 5;
+  z-index: 10;
 }
 
 .conceal-mouth2 {
+  left: 3.6vw;
+  top: 7.9vw;
+  width: 19vw;
+  height: 8vw;
   position: absolute;
   background-color: #cfae83;
-  width: 301px;
-  height: 111px;
   border-radius: 41%;
-  top: 462px;
-  left: 93px;
-  z-index: 5;
+  z-index: 11;
 }
 
 .conceal-mouth3 {
+  left: 12.1vw;
+  /* border: 0.02vw solid black; */
+  top: 17.1vw;
+  width: 6vw;
+  height: 5.03vw;
   position: absolute;
   background-color: #cfae83;
-  width: 200px;
-  height: 100px;
-  position: absolute;
-  background-color: #cfae83;
-  width: 123px;
-  height: 63px;
   border-radius: 41%;
-  top: 635px;
-  left: 190px;
-  z-index: 5;
+  z-index: 9;
 }
 
 .neck {
   position: absolute;
-  margin-left: -17px;
-  background-color: #fdd33b;
-  top: 433px;
-  width: 300px;
-  height: 503px;
-  border-right: 10px solid black;
   z-index: 1;
+  top: 10vw;
+  width: 16vw;
+  height: 125vw;
+  background-color: #fdd33b;
+  border-right: 0.5vw solid black;
 }
 
 .collar-left {
   position: absolute;
-  width: 293px;
-  height: 160px;
+  top: 32vw;
+  left: -13vw;
+  width: 22vw;
+  height: 12vw;
   background-color: white;
-  top: 770px;
-  left: -129px;
   transform: rotate(15deg);
   border-radius: 50%/10%;
-  border: 10px solid black;
-  z-index: 2;
+  border: 0.5vw solid black;
+  z-index: 9;
 }
 
 .collar-right {
+  top: 34vw;
+  left: 7vw;
+  width: 13vw;
+  height: 12vw;
   position: absolute;
-  width: 53px;
   transform: rotate(-20deg);
-  height: 150px;
   background-color: white;
-  top: 802px;
-  left: 274px;
-  border: 10px solid black;
+  border: 0.5vw solid black;
   border-radius: 50%/10%;
   border-bottom: none;
+}
+
+.body-top {
+  top: 42vw;
+  left: -5vw;
+  width: 24vw;
+  height: 17vw;
+  position: absolute;
+  /* transform: rotate(-20deg); */
+  background-color: white;
+  border: 0.5vw solid black;
+  border-radius: 80%/10%;
+  border-bottom: none;
+  z-index: 2;
+}
+
+.body-bottom {
+  top: 54vw;
+  left: -11vw;
+  width: 48vw;
+  height: 92vw;
+  position: absolute;
+  /* transform: rotate(-20deg); */
+  background-color: white;
+  border: 0.5vw solid black;
+  border-radius: 48%;
+  border-bottom: none;
+  z-index: 2;
+}
+
+.body-conceal {
+  top: 50vw;
+  left: -4vw;
+  width: 21vw;
+  height: 15vw;
+  position: absolute;
+  background-color: white;
+  border-radius: 88%;
+  border-bottom: none;
+  z-index: 3;
 }
 
 .donut-animate {
   background-image: url("https://orig00.deviantart.net/af88/f/2015/046/9/9/donut_cartoon_by_thegoldenbox-d8i3l4q.png");
   background-size: 100%;
   position: absolute;
-  margin-right: -280px;
-  width: 280px;
-  height: 280px;
   z-index: 0;
 }
 
@@ -301,9 +395,6 @@ h3 {
   background-image: url("https://image.flaticon.com/icons/svg/372/372624.svg");
   background-size: 100%;
   position: absolute;
-  margin-right: -280px;
-  width: 280px;
-  height: 280px;
   z-index: 0;
 }
 

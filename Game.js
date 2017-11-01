@@ -13,6 +13,10 @@ function Game(gameContainer) {
   self.healthyPoints = 0;
   self.donutsCreated = 0;
 
+  self.resize = function() {
+    console.log("resize");
+  };
+
   //DESTROY STATE ELEMENTS//
 
   self.destroySplash = function() {
@@ -50,7 +54,11 @@ function Game(gameContainer) {
     self.state = "Game";
     var html = `<div class="healthy-points"><h2>Healthy Points <span>0</span></h2></div>
     <div class="face-container">
+    <div class="hair1"></div>
+    <div class="hair2"></div>
     <div class="forehead"></div>
+    <div class="forehead-conceal"></div>
+    <div class="forehead-detail"></div>
     <div class="face-top">
         <div class="eye-container" id="left">
             <div class="pupil"></div>
@@ -74,6 +82,9 @@ function Game(gameContainer) {
     <div class="shirt">
         <div class="collar-left"></div>
         <div class="collar-right"></div>
+        <div class="body-conceal"></div>
+        <div class="body-top"></div>
+        <div class="body-bottom"></div>
     </div>
     </div>`;
 
@@ -86,6 +97,7 @@ function Game(gameContainer) {
   };
 
   self.createGameOver = function() {
+    var points = self.healthyPoints;
     self.state = "Game-Over";
     var html = `  <div class="game-over">
     <img src="https://www.socwall.com/images/wallpapers/3396-1600x1200.jpg" alt="" class="frame">
@@ -96,6 +108,7 @@ function Game(gameContainer) {
     $("body").css("background-image", "none");
     $("body").css("background-color", "#FD7AB0");
     $(self.containerElement).html(html);
+    $(".game-over h4 span").html(points);
   };
 
   //CREATE FLYING OBJECTS//
@@ -136,7 +149,7 @@ function Game(gameContainer) {
     var topSpace = Math.round(maxheight * Math.random());
 
     d.css("top", topSpace + "px");
-    d.css("right", "0px");
+    d.css("left", "0px");
 
     d.bind("click", function() {
       self.gameOver();
@@ -149,7 +162,7 @@ function Game(gameContainer) {
       var w = $("body").width();
 
       //Only trigger the animationComplete
-      if (parseInt(b.css("right")) >= w) {
+      if (parseInt(b.css("right")) >= w && self.state === "Game") {
         self.healthyPoints++;
         $(".healthy-points span").html(self.healthyPoints);
       }
@@ -161,20 +174,21 @@ function Game(gameContainer) {
   self.gameOver = function() {
     self.destroyGame();
     self.createGameOver();
+    console.log(self.healthyPoints);
     clearInterval(self.donutIntervalID);
     clearInterval(self.broccoliIntervalID);
-    self.resetTimeoutID = setTimeout(self.reset, 6000);
+    self.resetTimeoutID = setTimeout(self.reset, 4000);
   };
 
   self.start = function() {
     self.healthyPoints = 0;
     self.destroySplash();
     self.createGame();
-    self.donutIntervalID = setInterval(self.createDonut, DONUT_CREATION_TIME);
-    self.broccoliIntervalID = setInterval(
-      self.createBroccoli,
-      VEGETABLE_CREATION_TIME
-    );
+    // self.donutIntervalID = setInterval(self.createDonut, DONUT_CREATION_TIME);
+    // self.broccoliIntervalID = setInterval(
+    //   self.createBroccoli,
+    //   VEGETABLE_CREATION_TIME
+    // );
   };
 
   self.reset = function() {

@@ -3,11 +3,8 @@
 function init() {
   var parentElement = document.getElementsByTagName("body");
   var game = new Game(parentElement);
-  game.createSplash();
+  game.start();
   console.log("hey");
-  window.addEventListener("resize", function() {
-    game.resize();
-  });
 }
 
 init();
