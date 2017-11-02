@@ -203,6 +203,37 @@ h4 {
   position: absolute;
 }
 
+.mouth-inside {
+  position: absolute;
+  width: 14vw;
+  height: 2vw;
+  left: 4.5vw;
+  top: 12.9vw;
+  background-color: black;
+  border-radius: 26%;
+  border-bottom-right-radius: 68%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  transform: rotate(0deg);
+  z-index: 8;
+}
+
+.tongue {
+  position: absolute;
+  width: 8vw;
+  height: 0vw;
+  left: 4.5vw;
+  top: 15.5vw;
+  background-color: #e54b4b;
+  border: 0.4vw solid black;
+  border-radius: 26%;
+  border-bottom-right-radius: 68%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  transform: rotate(10deg);
+  z-index: 9;
+}
+
 .mouth-container {
   height: 21vw;
   width: 19vw;
@@ -264,14 +295,18 @@ h4 {
 }
 
 .end-mouth {
-  display: none;
-  background-color: black;
+  position: absolute;
+  top: 13.7vw;
+  left: 4.5vw;
+  width: 1vw;
+  height: 3vw;
+  /* background-color: black; */
   border-radius: 53%;
   border-left: 0.5vw solid black;
   /* border-right: 0.5vw solid black; */
   /* border-top: 0.5vw solid black; */
-  /* transform: rotate(54deg); */
-  z-index: 6;
+  transform: rotate(54deg);
+  z-index: 12;
 }
 
 .conceal-mouth1 {
@@ -290,9 +325,12 @@ h4 {
   top: 7.9vw;
   width: 19vw;
   height: 8vw;
+  transform: rotate(0deg);
   position: absolute;
   background-color: #cfae83;
   border-radius: 41%;
+  border-bottom-left-radius: 41%;
+  border-top-right-radius: 41%;
   z-index: 11;
 }
 
@@ -305,7 +343,7 @@ h4 {
   position: absolute;
   background-color: #cfae83;
   border-radius: 41%;
-  z-index: 9;
+  z-index: 7;
 }
 
 .neck {

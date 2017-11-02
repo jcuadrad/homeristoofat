@@ -73,6 +73,8 @@ function Game(gameContainer) {
         <div class="detail1"></div>
         <div class="detail2"></div>
         <div class="detail3"></div>
+        <div class="tongue"></div>
+        <div class="mouth-inside"></div>
         <div class="end-mouth"></div>
         <div class="conceal-mouth1"></div>
         <div class="conceal-mouth2"></div>
@@ -168,11 +170,216 @@ function Game(gameContainer) {
     });
   };
 
+  //ANIMATIONS//
+
+  self.animationForward = function() {
+    $(".mouth-container").animate(
+      {
+        height: "23vw",
+        width: "18vw"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+
+    $(".detail1").animate(
+      {
+        top: "6.9vw"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+
+    $(".detail2").animate(
+      {
+        height: "10vw"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+
+    $(".detail3").animate(
+      {
+        top: "17vw",
+        left: "13.5vw"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+
+    $(".end-mouth").animate(
+      {
+        left: "5.2vw",
+        opacity: "0%"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+
+    $(".conceal-mouth2").animate(
+      {
+        top: "5.9vw",
+        width: "18.3vw",
+        height: "7.8vw",
+        "border-bottom-left-radius": "0%",
+        "border-top-right-radius": "27%"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+
+    $(".conceal-mouth3").animate(
+      {
+        left: "11.1vw",
+        top: "19.6vw",
+        height: "5.09vw"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+
+    $(".mouth-inside").animate(
+      {
+        height: "8vw"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+
+    $(".tongue").animate(
+      {
+        height: "4vw"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+  };
+
+  self.animationBackward = function() {
+    $(".mouth-container").animate(
+      {
+        height: "21vw",
+        width: "19vw"
+      },
+      500,
+      function() {
+        self.animationForward();
+      }
+    );
+
+    $(".detail1").animate(
+      {
+        top: "9.9vw"
+      },
+      500,
+      function() {
+        self.animationForward();
+      }
+    );
+
+    $(".detail2").animate(
+      {
+        height: "12vw"
+      },
+      500,
+      function() {
+        self.animationForward();
+      }
+    );
+
+    $(".detail3").animate(
+      {
+        top: "14vw",
+        left: "15vw"
+      },
+      500,
+      function() {
+        self.animationForward();
+      }
+    );
+
+    $(".end-mouth").animate(
+      {
+        left: "4.5vw",
+        opacity: "100%"
+      },
+      500,
+      function() {
+        self.animationBackward();
+      }
+    );
+
+    $(".conceal-mouth2").animate(
+      {
+        top: "7.9vw",
+        width: "19vw",
+        height: "8vw",
+        transform: "rotate(0deg)",
+        "border-bottom-left-radius": "41%",
+        "border-top-right-radius": "41%"
+      },
+      500,
+      function() {
+        self.animationForward();
+      }
+    );
+
+    $(".conceal-mouth3").animate(
+      {
+        left: "12.1vw",
+        top: "17.1vw",
+        height: "5.03vw"
+      },
+      500,
+      function() {
+        self.animationForward();
+      }
+    );
+    $(".mouth-inside").animate(
+      {
+        height: "2vw"
+      },
+      500,
+      function() {
+        self.animationForward();
+      }
+    );
+
+    $(".tongue").animate(
+      {
+        height: "0vw"
+      },
+      500,
+      function() {
+        self.animationForward();
+      }
+    );
+  };
+
   //GAME TRANSITIONS//
 
   self.gameOver = function() {
     clearInterval(self.donutIntervalID);
     clearInterval(self.broccoliIntervalID);
+    clearInterval(self.homerAnimationIntervalID);
     self.destroyGame();
     self.createGameOver();
     console.log(self.healthyPoints);
@@ -188,6 +395,7 @@ function Game(gameContainer) {
       self.createBroccoli,
       VEGETABLE_CREATION_TIME
     );
+    self.animationForward();
   };
 
   self.reset = function() {
