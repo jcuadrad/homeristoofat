@@ -400,11 +400,11 @@ function Game(gameContainer) {
     self.healthyPoints = 0;
     self.destroySplash();
     self.createGame();
-    // self.donutIntervalID = setInterval(self.createDonut, DONUT_CREATION_TIME);
-    // self.broccoliIntervalID = setInterval(
-    //   self.createBroccoli,
-    //   VEGETABLE_CREATION_TIME
-    // );
+    self.donutIntervalID = setInterval(self.createDonut, DONUT_CREATION_TIME);
+    self.broccoliIntervalID = setInterval(
+      self.createBroccoli,
+      VEGETABLE_CREATION_TIME
+    );
     self.animationForward();
   };
 
