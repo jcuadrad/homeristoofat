@@ -102,10 +102,19 @@ function Game(gameContainer) {
     var points = self.healthyPoints;
     self.state = "Game-Over";
     var html = `  <div class="game-over">
-    <img src="https://www.socwall.com/images/wallpapers/3396-1600x1200.jpg" alt="" class="frame">
-    <h1>GAME OVER!</H1>
-    <h4>You only got <span>0</span> healthy points!</h4>
-    </div>`;
+    <div class="tv-container">
+        <img src="https://media.giphy.com/media/xT5LMBk9CIQXji0wNy/giphy.gif" alt="" class="gif">
+        <img src="/Users/juancuadra/prework/code/personal/Homer-Mouth-Open/images/the-simpsons-tv.png" alt="" class="frame">
+    </div>
+    <div class="text-container">
+        <h1>GAME OVER!</H1>
+        <h4>You only got
+            <span>0</span> healthy points!</h4>
+    </div>
+    <div class="button-container">
+        <button class="reset-button">GO BACK</button>
+    </div>
+</div>`;
 
     $("body").css("background-image", "none");
     $("body").css("background-color", "#FD7AB0");
