@@ -105,7 +105,7 @@ function Game(gameContainer) {
     <div class="graphic-container">
       <div class="tv-container">
         <img src="https://media.giphy.com/media/xT5LMBk9CIQXji0wNy/giphy.gif" alt="" class="gif">
-        <img src="images/thesimpsonstv.png" alt="" class="frame">
+        <img src="./images/thesimpsonstv.png" alt="" class="frame">
       </div>
     </div>
     <div class="text-container">
