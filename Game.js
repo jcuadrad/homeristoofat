@@ -47,7 +47,7 @@ function Game(gameContainer) {
     });
 
     $("body").css("background-image", "none");
-    $("body").css("background-color", "#FCD24C");
+    $("body").css("background-color", "#137EC1");
   };
 
   self.createGame = function() {
@@ -102,14 +102,15 @@ function Game(gameContainer) {
     var points = self.healthyPoints;
     self.state = "Game-Over";
     var html = `  <div class="game-over">
-    <div class="tv-container">
+    <div class="graphic-container">
+      <div class="tv-container">
         <img src="https://media.giphy.com/media/xT5LMBk9CIQXji0wNy/giphy.gif" alt="" class="gif">
         <img src="/Users/juancuadra/prework/code/personal/Homer-Mouth-Open/images/the-simpsons-tv.png" alt="" class="frame">
+      </div>
     </div>
     <div class="text-container">
         <h1>GAME OVER!</H1>
-        <h4>You only got
-            <span>0</span> healthy points!</h4>
+        <h4>You only got  <span>  0  </span>   healthy points!</h4>
     </div>
     <div class="button-container">
         <button class="reset-button">GO BACK</button>
