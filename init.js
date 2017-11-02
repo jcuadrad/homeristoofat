@@ -9,7 +9,7 @@ function init() {
     }
   });
   var game = new Game(parentElement);
-  game.createSplash();
+  game.createGameOver();
   console.log("hey");
 }
 

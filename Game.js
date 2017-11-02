@@ -101,10 +101,24 @@ function Game(gameContainer) {
   self.createGameOver = function() {
     var points = self.healthyPoints;
     self.state = "Game-Over";
+
+    var gifs = [
+      "https://media.giphy.com/media/CDpAmfo9dbOyA/giphy.gif",
+      "https://media.giphy.com/media/xT5LMBk9CIQXji0wNy/giphy.gif",
+      "https://media.giphy.com/media/JOjGbeFoOPL2/giphy.gif",
+      "https://media.giphy.com/media/l2JdU5gv9TRLKl9jG/giphy.gif",
+      "https://media.giphy.com/media/3o6Mbayli3UXoP9Wik/giphy.gif",
+      "https://media.giphy.com/media/l0G17vt3egB6B4mZO/giphy.gif"
+    ];
+
+    self.randomGif = function(array) {
+      var gif = array[Math.floor(Math.random() * array.length)];
+      return gif;
+    };
+
     var html = `  <div class="game-over">
     <div class="graphic-container">
       <div class="tv-container">
-        <img src="https://media.giphy.com/media/xT5LMBk9CIQXji0wNy/giphy.gif" alt="" class="gif">
         <img src="./images/thesimpsonstv.png" alt="" class="frame">
       </div>
     </div>
@@ -121,6 +135,8 @@ function Game(gameContainer) {
     $("body").css("background-color", "#FD7AB0");
     $(self.containerElement).html(html);
     $(".game-over h4 span").html(points);
+    $(".tv-container").prepend($("<img>", { class: "gif" }));
+    $(".gif").attr("src", self.randomGif(gifs));
   };
 
   //CREATE FLYING OBJECTS//
