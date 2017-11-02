@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Simpsons";
-  src: url("/Users/juancuadra/prework/code/webfontkit-20171030-124548/simpsonfont_demo-webfont.woff")
+  src: url("homeristoofat/webfontkit/simpsonfontdemowebfont.woff")
     format("woff");
 }
 
@@ -23,7 +23,7 @@ h1 {
 
 h2 {
   font-family: "Simpsons";
-  font-size: 60px;
+  font-size: 4.5vw;
   color: #fdd33b;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

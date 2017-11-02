@@ -3,7 +3,7 @@
 function init() {
   var parentElement = document.getElementsByTagName("body");
   var game = new Game(parentElement);
-  game.createSplash();
+  game.createGame();
   console.log("hey");
 }
 

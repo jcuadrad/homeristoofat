@@ -393,18 +393,18 @@ function Game(gameContainer) {
     self.destroyGame();
     self.createGameOver();
     console.log(self.healthyPoints);
-    self.resetTimeoutID = setTimeout(self.reset, 4000);
+    self.resetTimeoutID = setTimeout(self.reset, 5000);
   };
 
   self.start = function() {
     self.healthyPoints = 0;
     self.destroySplash();
     self.createGame();
-    self.donutIntervalID = setInterval(self.createDonut, DONUT_CREATION_TIME);
-    self.broccoliIntervalID = setInterval(
-      self.createBroccoli,
-      VEGETABLE_CREATION_TIME
-    );
+    // self.donutIntervalID = setInterval(self.createDonut, DONUT_CREATION_TIME);
+    // self.broccoliIntervalID = setInterval(
+    //   self.createBroccoli,
+    //   VEGETABLE_CREATION_TIME
+    // );
     self.animationForward();
   };
 
