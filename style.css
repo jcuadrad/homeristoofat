@@ -1,3 +1,11 @@
+* {
+  user-select: none;
+}
+
+html {
+  height: 100%;
+}
+
 @font-face {
   font-family: "Simpsons";
   src: url("../homeristoofat/webfontkit/simpsonfontdemowebfont.woff")
@@ -7,9 +15,10 @@
 body {
   background-image: url(http://vignette4.wikia.nocookie.net/simpsons/images/a/a2/Wiki-background_update_2.jpg/revision/latest?cb=20111014041518);
   background-size: cover;
-  overflow: hidden;
+  height: 100%;
   margin: 0;
   display: flex;
+  overflow: hidden;
   align-items: center;
 }
 
