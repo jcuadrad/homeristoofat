@@ -35,7 +35,8 @@ function Game(gameContainer) {
   //CREATE STATE ELEMENTS//
 
   self.createSplash = function() {
-    var html = `<div class="splash-screen">
+    var html = `
+    <div class="splash-screen">
     <div class="name"><h1>Homer is too fat</h1></div>
     <button id="start-game"><h3>Let's Help Him</h3></button>
     </div>`;
@@ -135,6 +136,9 @@ function Game(gameContainer) {
     $("body").css("background-color", "#FD7AB0");
     $(self.containerElement).html(html);
     $(".game-over h4 span").html(points);
+    $(".reset-button").bind("click", function() {
+      self.reset();
+    });
     $(".tv-container").prepend($("<img>", { class: "gif" }));
     $(".gif").attr("src", self.randomGif(gifs));
   };
@@ -409,7 +413,7 @@ function Game(gameContainer) {
     self.destroyGame();
     self.createGameOver();
     console.log(self.healthyPoints);
-    self.resetTimeoutID = setTimeout(self.reset, 5000);
+    // self.resetTimeoutID = setTimeout(self.reset, 5000);
   };
 
   self.start = function() {
@@ -425,7 +429,7 @@ function Game(gameContainer) {
   };
 
   self.reset = function() {
-    clearTimeout(self.resetTimeoutID);
+    // clearTimeout(self.resetTimeoutID);
     self.state = "Splash";
     self.healthyPoints = 0;
     self.destroyGameOver();

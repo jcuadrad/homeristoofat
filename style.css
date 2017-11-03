@@ -531,6 +531,8 @@ h4 span {
 
   .button-container .reset-button {
     margin-bottom: 2vw;
+    margin-top: 1vw;
+    font-size: 2vw;
   }
 
   h4 {
