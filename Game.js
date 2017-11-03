@@ -147,18 +147,31 @@ function Game(gameContainer) {
 
   self.createDonut = function() {
     self.donutsCreated++;
+
     var d = $(document.createElement("div"));
     d.addClass("donut-animate");
 
     var maxheight = $("body").height() - 200;
     var topSpace = Math.round(maxheight * Math.random());
 
+    self.goDown = function() {
+      $(".donut-animate").animate(
+        {
+          top: $("body").height()
+        },
+        600,
+        function() {
+          $("#donut-animate").remove();
+        }
+      );
+    };
+
     d.css("top", topSpace + "px");
     d.css("left", $("body").width() + "px");
 
     d.bind("click", function() {
       $(this).stop();
-      $(this).remove();
+      self.goDown();
     });
 
     $("body").append(d);
