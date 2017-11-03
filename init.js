@@ -1,7 +1,7 @@
 "use strict";
 
 function init() {
-  var parentElement = document.getElementsByTagName("body");
+  var parentElement = document.getElementsByClassName("game-container");
   $(document).on("touchmove", function(event) {
     if (event.originalEvent.scale !== 1) {
       event.preventDefault();

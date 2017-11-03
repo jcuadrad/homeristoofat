@@ -19,7 +19,6 @@ body {
   margin: 0;
   display: flex;
   overflow: hidden;
-  align-items: center;
 }
 
 h1 {
@@ -56,6 +55,16 @@ h4 span {
   font-size: 4vw;
   color: #5263aa;
   padding: 0px 10px;
+}
+
+.game-container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
 }
 
 .HP {

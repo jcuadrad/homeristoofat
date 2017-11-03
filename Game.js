@@ -25,7 +25,7 @@ function Game(gameContainer) {
   };
 
   self.destroyGame = function() {
-    $("body").empty();
+    $(".game-container").empty();
   };
 
   self.destroyGameOver = function() {
@@ -47,8 +47,8 @@ function Game(gameContainer) {
       self.start();
     });
 
-    $("body").css("background-image", "none");
-    $("body").css("background-color", "#137EC1");
+    $(".game-container").css("background-image", "none");
+    $(".game-container").css("background-color", "#137EC1");
   };
 
   self.createGame = function() {
@@ -91,8 +91,8 @@ function Game(gameContainer) {
     </div>
     </div>`;
 
-    $("body").css("background-color", "none");
-    $("body").css(
+    $(".game-container").css("background-color", "none");
+    $(".game-container").css(
       "background-image",
       "url(http://vignette4.wikia.nocookie.net/simpsons/images/a/a2/Wiki-background_update_2.jpg/revision/latest?cb=20111014041518)"
     );
@@ -117,23 +117,25 @@ function Game(gameContainer) {
       return gif;
     };
 
-    var html = `  <div class="game-over">
-    <div class="graphic-container">
-      <div class="tv-container">
-        <img src="./images/thesimpsonstv.png" alt="" class="frame">
+    var html = `<div class="game-over">
+      <div class="graphic-container">
+          <div class="tv-container">
+              <img src="./images/thesimpsonstv.png" alt="" class="frame">
+          </div>
       </div>
-    </div>
-    <div class="text-container">
-        <h1>GAME OVER!</H1>
-        <h4>You only got  <span>  0  </span>   healthy points!</h4>
-    </div>
-    <div class="button-container">
-        <button class="reset-button">GO BACK</button>
-    </div>
-</div>`;
+      <div class="text-container">
+          <h1>GAME OVER!</H1>
+          <h4>You only got
+              <span> 0 </span> healthy points!</h4>
+      </div>
+      <div class="button-container">
+          <button class="reset-button">GO BACK</button>
+      </div>
+      </div>`;
 
-    $("body").css("background-image", "none");
-    $("body").css("background-color", "#FD7AB0");
+    $(".game-container").css("background-image", "none");
+    $(".game-container").css("background-color", "#FD7AB0");
+    $(".game-container").css("background-color", "#FD7AB0");
     $(self.containerElement).html(html);
     $(".game-over h4 span").html(points);
     $(".reset-button").bind("click", function() {
@@ -174,7 +176,7 @@ function Game(gameContainer) {
       self.goDown();
     });
 
-    $("body").append(d);
+    $(".game-container").append(d);
 
     d.animate({ left: 0 }, DONUT_SPEED, function() {
       var b = $(this);
@@ -199,7 +201,7 @@ function Game(gameContainer) {
       self.gameOver();
     });
 
-    $("body").append(d);
+    $(".game-container").append(d);
 
     d.animate({ left: "-17.5vw" }, VEGETABLE_SPEED, function() {
       var b = $(this);
