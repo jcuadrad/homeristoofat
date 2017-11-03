@@ -1,11 +1,5 @@
 "use strict";
 
-function aud_play() {
-  var myAudio = document.getElementById("theme-song");
-  myAudio.play();
-  console.log("Playing");
-}
-
 function init() {
   var parentElement = document.getElementsByTagName("body");
   $(document).on("touchmove", function(event) {
@@ -20,4 +14,3 @@ function init() {
 }
 
 init();
-aud_play();
