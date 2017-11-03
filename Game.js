@@ -133,16 +133,18 @@ function Game(gameContainer) {
       </div>
       </div>`;
 
+    var finalGif = self.randomGif(gifs);
+
     $(".game-container").css("background-image", "none");
     $(".game-container").css("background-color", "#FD7AB0");
     $(".game-container").css("background-color", "#FD7AB0");
     $(self.containerElement).html(html);
     $(".game-over h4 span").html(points);
+    $(".tv-container").prepend($("<img>", { class: "gif" }));
+    $(".gif").attr("src", finalGif);
     $(".reset-button").bind("click", function() {
       self.reset();
     });
-    $(".tv-container").prepend($("<img>", { class: "gif" }));
-    $(".gif").attr("src", self.randomGif(gifs));
   };
 
   //CREATE FLYING OBJECTS//
