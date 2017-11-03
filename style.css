@@ -49,6 +49,10 @@ h4 span {
   padding: 0px 10px;
 }
 
+.HP {
+  pointer-events: none;
+}
+
 .splash-screen {
   /* background-color: #fdd33b; */
   width: 100%;

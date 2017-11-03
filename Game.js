@@ -53,7 +53,7 @@ function Game(gameContainer) {
 
   self.createGame = function() {
     self.state = "Game";
-    var html = `<div class="healthy-points"><h2>Healthy Points <span>0</span></h2></div>
+    var html = `<div class="healthy-points"><h2 class="HP">Healthy Points <span>0</span></h2></div>
     <div class="face-container">
     <div class="hair1"></div>
     <div class="hair2"></div>
