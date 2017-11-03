@@ -18,7 +18,8 @@ h1 {
   font-size: 6vw;
   margin-top: -2vw;
   margin-bottom: 3vw;
-  color: white;ow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;*/
+  color: white;
+  /* color: white;ow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;*/
 }
 
 h2 {
@@ -516,14 +517,14 @@ h4 span {
   background-color: #5161ac;
 }
 
-@media (max-height: 596px) {
+@media (max-height: 675px) {
   .gif {
     width: 15.9vw;
     top: 9.4vw;
     left: 9vw;
     z-index: 0;
   }
-  
+
   .frame {
     width: 29vw;
     left: 3vw;
@@ -538,6 +539,4 @@ h4 span {
   h4 {
     margin-top: -4vw;
   }
-
- 
 }
